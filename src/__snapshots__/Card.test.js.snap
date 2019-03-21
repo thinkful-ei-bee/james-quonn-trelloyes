@@ -1,10 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Card /> renders div with a p, button, p and h3 nested inside 1`] = `
+<div
+  className="Card"
+>
+  <p />
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    delete
+  </button>
+  <h3 />
+  <p />
+</div>
+`;
+
 exports[`<Card /> renders without crashing 1`] = `
 <div
   className="Card"
 >
+  <p />
   <button
+    onClick={[Function]}
     type="button"
   >
     delete

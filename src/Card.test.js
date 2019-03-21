@@ -8,18 +8,18 @@ it("renders without crashing", () => {
   const div = document.createElement("div");
 
   // Render the component
-  // If something is wrong it will fail here
-  ReactDOM.render(<Card />, div);
+  // If something is wrong it will fail her
+  ReactDOM.render(<Card ></Card>, div);
   // Clean up
   ReactDOM.unmountComponentAtNode(div);
 });
 
-describe("<Card />", () => {
-  it("renders without crashing", () => {
-    // Render the component, as JSON
-    const tree = renderer.create(<Card />).toJSON();
-    // Check whether it matches the previous snapshot
-    // Stored in __snapshots__/App.test.js.snap
-    expect(tree).toMatchSnapshot();
-  });
-});
+// describe("<Card />", () => {
+//   it("renders div with a p, button, p and h3 nested inside", () => {
+//     // Render the component, as JSON
+//     const tree = renderer.create(<Card ><p></p></Card>).toJSON();
+//     // Check whether it matches the previous snapshot
+//     // Stored in __snapshots__/App.test.js.snap
+//     expect(tree).toMatchSnapshot();
+//   });
+// });
