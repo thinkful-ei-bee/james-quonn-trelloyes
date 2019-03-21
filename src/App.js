@@ -10,7 +10,6 @@ class App extends Component {
   };
 
   handleAdd = (id) => {
-    const {lists, allCards} = this.state.store;
     const newCard = this.newRandomCard();
     const newList = this.state.store.lists.map (list => {
       if(list.id === id) {
@@ -31,18 +30,18 @@ class App extends Component {
 
   handleDelete = (cardId) => {
     console.log("from handle delete")
-    const { lists, allCards } = this.state.store;
+    const { lists } = this.state.store;
     const newLists = lists.map(list => {
       list.cardIds = list.cardIds.filter(id => id !== cardId);
       return list;
     });
 
-    delete allCards[cardId];
+    const newCardList = this.omit(this.state.store.allCards, cardId);
 
     this.setState({
       store: {
         lists: newLists,
-        allCards
+        allCards: newCardList
       }
     })
   }
@@ -53,7 +52,7 @@ class App extends Component {
     return {
       id,
       title: `Random Card ${id}`,
-      content: 'lorem ipsum',
+      content: 'something cool',
     }
   }
 
