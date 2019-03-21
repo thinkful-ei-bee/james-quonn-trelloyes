@@ -6,8 +6,7 @@ import STORE from './STORE'
 class App extends Component {
   
   state = {
-    store: STORE,
-    
+    store: STORE
   };
 
   handleAdd = (id) => {
@@ -30,8 +29,22 @@ class App extends Component {
     console.log(this.state.store)
   }
 
-  handleDelete = () => {
-    console.log('delete')
+  handleDelete = (cardId) => {
+    console.log("from handle delete")
+    const { lists, allCards } = this.state.store;
+    const newLists = lists.map(list => {
+      list.cardIds = list.cardIds.filter(id => id !== cardId);
+      return list;
+    });
+
+    delete allCards[cardId];
+
+    this.setState({
+      store: {
+        lists: newLists,
+        allCards
+      }
+    })
   }
 
   newRandomCard = () => {
